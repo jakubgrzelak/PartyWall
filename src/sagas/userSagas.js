@@ -20,7 +20,7 @@ export function* createAccountRequest(action) {
   try {
     const { data } = yield call(partyWallApi.user.createAccount, action.data);
     yield put({ type: CREATE_ACCOUNT_SUCCESS, data });
-  } catch ({ response: { data: { message }}}  ) {
+  } catch ({ response: { data: { message }}}) {
     yield put({ type: USER_REQUEST_FAILURE, message: e });
   }
 }

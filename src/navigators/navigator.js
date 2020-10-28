@@ -2,6 +2,7 @@ import 'react-native-gesture-handler';
 import * as React from 'react';
 import { useRef } from 'react';
 import { Image, StyleSheet } from 'react-native';
+import { Icon } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -13,6 +14,9 @@ import { LoginScreen } from '../containers/authentication/LoginScreen';
 import { CreateAccountScreen } from '../containers/authentication/CreateAccountScreen';
 import { FeedScreen } from '../containers/feed/FeedScreen';
 import { SettingsScreen } from '../containers/settings/SettingsScreen';
+import { AddItemIcon } from '../components/buttons/AddItemIcon';
+import Colors from '../themes/colors';
+import { AddItemScreen } from '../containers/add_item/AddItemScreen';
 
 // const homeIcon = require('../assets/tab_bar/home_icon.png');
 // const settingsIcon = require('../assets/tab_bar/settings_icon.png');
@@ -49,35 +53,45 @@ function RootApp() {
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
-            let iconSource = {};
+            let iconColor = '';
+            let iconName = '';
             switch (route.name) {
               case 'Home':
-                // iconSource = focused ? homeIcon : homeIcon;
+                iconColor = focused ? Colors.activeIcon : Colors.inactiveButton;
+                iconName = 'home';
                 break;
               case 'Settings':
-                // iconSource = focused ? settingsIcon : settingsIcon;
+                iconColor = focused ? Colors.activeIcon : Colors.inactiveButton;
+                iconName = 'settings'
                 break;
               default:
                 break;
             }
 
-            return <Image style={styles.tabBarIconStyle} source={iconSource} />;
+            return (
+              <Icon
+                name={iconName}
+                type='feather'
+                color={iconColor}
+                size={32}
+              />
+            );
           },
         })}
         tabBarOptions={{
           allowFontScaling: true,
-          showLabel: true,
+          showLabel: false,
           tabStyle: styles.tabStyle,
           style: styles.tabBarStyle,
         }}>
         <Tab.Screen name="Home" component={HomeStackComponent} />
-        {/* <Tab.Screen
-          name="AddPet"
-          component={AddPetComponent}
+        <Tab.Screen
+          name="AddItem"
+          component={AddItemComponent}
           options={{
-            tabBarButton: (options) => <AddPetTabBarIcon {...options} />,
+            tabBarButton: (options) => <AddItemIcon {...options} />,
           }}
-        /> */}
+        />
         <Tab.Screen name="Settings" component={SettingsScreen} />
       </Tab.Navigator>
     );
@@ -90,6 +104,7 @@ function RootApp() {
           {user ? (
             <>
               <Stack.Screen name="Home" component={Tabs} />
+              <Stack.Screen name="AddItemScreen" component={AddItemScreen} />
             </>
           ) : (
             <>
