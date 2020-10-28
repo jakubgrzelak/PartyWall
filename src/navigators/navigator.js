@@ -11,6 +11,8 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { isNotchPresent } from '../themes/common';
 import { LoginScreen } from '../containers/authentication/LoginScreen';
 import { CreateAccountScreen } from '../containers/authentication/CreateAccountScreen';
+import { FeedScreen } from '../containers/feed/FeedScreen';
+import { SettingsScreen } from '../containers/settings/SettingsScreen';
 
 // const homeIcon = require('../assets/tab_bar/home_icon.png');
 // const settingsIcon = require('../assets/tab_bar/settings_icon.png');
@@ -24,68 +26,71 @@ const AddItemComponent = () => {
 };
 
 function RootApp() {
-  const user = useSelector((state) => state.user.user);
+  const user = useSelector((state) => state.user.id);
+  console.log(user);
   const dispatch = useDispatch();
 
 
-  // function HomeStackComponent() {
-  //   return (
-  //     <HomeStack.Navigator
-  //       headerMode="none"
-  //       initialRouteName={'DogDetailsScreen'}>
-  //       <HomeStack.Screen
-  //         name="DogDetailsScreen"
-  //         component={DogDetailsScreen}
-  //       />
-  //     </HomeStack.Navigator>
-  //   );
-  // }
+  function HomeStackComponent() {
+    return (
+      <HomeStack.Navigator
+        headerMode="none"
+        initialRouteName={'Feed'}>
+        <HomeStack.Screen
+          name="Feed"
+          component={FeedScreen}
+        />
+      </HomeStack.Navigator>
+    );
+  }
 
-  // function Tabs() {
-  //   return (
-  //     <Tab.Navigator
-  //       screenOptions={({ route }) => ({
-  //         tabBarIcon: ({ focused, color, size }) => {
-  //           let iconSource = {};
-  //           switch (route.name) {
-  //             case 'Home':
-  //               // iconSource = focused ? homeIcon : homeIcon;
-  //               break;
-  //             case 'Settings':
-  //               // iconSource = focused ? settingsIcon : settingsIcon;
-  //               break;
-  //             default:
-  //               break;
-  //           }
+  function Tabs() {
+    return (
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconSource = {};
+            switch (route.name) {
+              case 'Home':
+                // iconSource = focused ? homeIcon : homeIcon;
+                break;
+              case 'Settings':
+                // iconSource = focused ? settingsIcon : settingsIcon;
+                break;
+              default:
+                break;
+            }
 
-  //           return <Image style={styles.tabBarIconStyle} source={iconSource} />;
-  //         },
-  //       })}
-  //       tabBarOptions={{
-  //         allowFontScaling: true,
-  //         showLabel: false,
-  //         tabStyle: styles.tabStyle,
-  //         style: styles.tabBarStyle,
-  //       }}>
-  //       <Tab.Screen name="Home" component={HomeStackComponent} />
-  //       <Tab.Screen
-  //         name="AddPet"
-  //         component={AddPetComponent}
-  //         options={{
-  //           tabBarButton: (options) => <AddPetTabBarIcon {...options} />,
-  //         }}
-  //       />
-  //       <Tab.Screen name="Settings" component={SettingsScreen} />
-  //     </Tab.Navigator>
-  //   );
-  // }
+            return <Image style={styles.tabBarIconStyle} source={iconSource} />;
+          },
+        })}
+        tabBarOptions={{
+          allowFontScaling: true,
+          showLabel: true,
+          tabStyle: styles.tabStyle,
+          style: styles.tabBarStyle,
+        }}>
+        <Tab.Screen name="Home" component={HomeStackComponent} />
+        {/* <Tab.Screen
+          name="AddPet"
+          component={AddPetComponent}
+          options={{
+            tabBarButton: (options) => <AddPetTabBarIcon {...options} />,
+          }}
+        /> */}
+        <Tab.Screen name="Settings" component={SettingsScreen} />
+      </Tab.Navigator>
+    );
+  }
 
   return (
     <SafeAreaProvider>
       <NavigationContainer ref={navigationRef}>
         <Stack.Navigator headerMode="none" initialRouteName={'Home'}>
           {user ? (
-            <></>
+            <>
+              <Stack.Screen name="Home" component={Tabs} />
+            </>
           ) : (
             <>
               <Stack.Screen name="LoginScreen" component={LoginScreen} />
