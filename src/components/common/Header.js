@@ -3,6 +3,7 @@ import { View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
 import Colors from '../../themes/colors';
 import { goBack } from '../../navigators/navigationActions';
 import { isNotchPresent } from '../../themes/common';
+import { Icon } from 'react-native-elements'
 
 // const backIcon = require('../../assets/common/back_icon.png');
 
@@ -28,8 +29,13 @@ export const Header = ({
     <View style={styles.container}>
       {renderBackButton && canGoBack && (
         <TouchableOpacity onPress={onBackPress} style={styles.backIconWrapper}>
-          {/* <Image source={backIcon} /> */}
-          <Text style={styles.backButtonText}>Back</Text>
+          <Icon
+            name='arrow-left'
+            type='feather'
+            color={Colors.addButton}
+            // onPress={onIconPress}
+            size={28}
+          />
         </TouchableOpacity>
       )}
       <View style={styles.content}>
@@ -59,15 +65,12 @@ const styles = StyleSheet.create({
   backIconWrapper: {
     position: 'absolute',
     left: 10,
-    bottom: 10,
+    bottom: 15,
     flexDirection: 'row',
     alignItems: 'center',
     zIndex: 10,
   },
-  backButtonText: {
-    color: Colors.textButton,
-    fontSize: 20,
-    fontWeight: '300',
-    marginLeft: 5,
+  backButton: {
+    height: 20,
   },
 });

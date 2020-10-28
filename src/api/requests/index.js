@@ -10,12 +10,10 @@ const defaultHeaders = {
   'Content-Type': 'application/json',
 };
 
-export const api = applyCaseMiddleware(
-  axios.create({
-    baseURL: BASE_URL,
-    headers: defaultHeaders,
-  }),
-);
+export const api = axios.create({
+  baseURL: BASE_URL,
+  headers: defaultHeaders,
+});
 
 export const setToken = (token) => {
   if (token) {

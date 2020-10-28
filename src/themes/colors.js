@@ -36,4 +36,8 @@ export default {
   peeProgresBarColor: '#F57C00',
   eatProgresBarColor: '#02B8D3',
   pooProgresBarColor: '#115FFB',
+
+  //buttons
+  addButton: '#4f4f4f',
+  activeIcon: '#506fa9',
 };
