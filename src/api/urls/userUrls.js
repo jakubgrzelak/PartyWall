@@ -1,4 +1,3 @@
-export const LOGIN_URL = '/v1/users/login';
-export const DEV_LOGIN_URL = '/v1/users/login_without_verification';
-export const VERIFY_TOKEN_URL = 'v1/users/verify_phone_number';
-export const REFRESH_FIREBASE_TOKEN_URL = 'v1/users/refresh_firebase_token';
+export const USERS_URL = '/users';
+export const LOGIN_URL = '/auth/login';
+export const CREATE_USER_URL = '/auth/register';

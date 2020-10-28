@@ -3,7 +3,7 @@ import applyCaseMiddleware from 'axios-case-converter';
 import Config from 'react-native-config';
 
 const BASE_URL =
-  Config.SERVER_URL || 'https://paw-tracks-staging.herokuapp.com';
+  Config.SERVER_URL || 'http://localhost:3000';
 
 const defaultHeaders = {
   Accept: 'application/json',

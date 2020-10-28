@@ -1,32 +1,24 @@
 import {
-  SIGNUP_REQUEST,
-  VERIFY_TOKEN_REQUEST,
-  INVITE_CARER_VIA_TOKEN,
-  FIREBASE_LOGIN,
-  REFRESH_FIREBASE_TOKEN,
+  CLEAR_ERROR_MESSAGE,
+  CREATE_ACCOUNT_REQUEST,
+  LOGIN_REQUEST,
+  LOGOUT,
 } from './types';
 
-export const signupRequest = (data) => ({
-  type: SIGNUP_REQUEST,
+export const loginRequest = (data) => ({
+  type: LOGIN_REQUEST,
   data,
 });
 
-export const verifyToken = (data) => ({
-  type: VERIFY_TOKEN_REQUEST,
+export const createAccountRequest = (data) => ({
+  type: CREATE_ACCOUNT_REQUEST,
   data,
 });
 
-export const inviteCarerViaToken = (data) => ({
-  type: INVITE_CARER_VIA_TOKEN,
-  data,
+export const logout = () => ({
+  type: LOGOUT,
 });
 
-export const firebaseLogin = (data) => ({
-  type: FIREBASE_LOGIN,
-  data,
-});
-
-export const refreshFirebaseToken = (data) => ({
-  type: REFRESH_FIREBASE_TOKEN,
-  data,
+export const clearErrorMessage = () => ({
+  type: CLEAR_ERROR_MESSAGE,
 });

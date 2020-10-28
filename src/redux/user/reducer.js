@@ -1,36 +1,51 @@
 import {
   LOGIN_SUCCESS,
-  REFRESH_FIREBASE_TOKEN_SUCCESS,
-  SIGNUP_REQUEST,
+  LOGIN_REQUEST,
   USER_REQUEST_FAILURE,
+  CREATE_ACCOUNT_REQUEST,
+  CREATE_ACCOUNT_SUCCESS,
+  LOGOUT,
+  CLEAR_ERROR_MESSAGE,
 } from './types';
 
 import produce from 'immer';
 
 const initialState = {
-  user: null,
+  id: null,
+  username: null,
   isLoading: false,
   error: null,
-  signupData: null,
-  contacts: {
-    rawData: null,
-    pawTrackerContacts: null,
-    carers: [],
-  },
 };
 
 export const user = (state = initialState, action) => {
   switch (action.type) {
-    case SIGNUP_REQUEST: {
+    case CREATE_ACCOUNT_REQUEST:
+    case LOGIN_REQUEST: {
       const nextState = produce(state, (draftState) => {
         draftState.isLoading = true;
+        draftState.error = null;
       });
       return nextState;
     }
+    case CREATE_ACCOUNT_SUCCESS:
     case LOGIN_SUCCESS: {
       const nextState = produce(state, (draftState) => {
-        draftState.user = action.data;
+        draftState.id = action.data.id;
+        draftState.username = action.data.username;
         draftState.isLoading = false;
+        draftState.error = null;
+      });
+      return nextState;
+    }
+    case LOGOUT: {
+      const nextState = produce(state, (draftState) => {
+        draftState.id = null;
+        draftState.username = null;
+      });
+      return nextState;
+    }
+    case CLEAR_ERROR_MESSAGE: {
+      const nextState = produce(state, (draftState) => {
         draftState.error = null;
       });
       return nextState;
@@ -39,12 +54,6 @@ export const user = (state = initialState, action) => {
       const nextState = produce(state, (draftState) => {
         draftState.isLoading = false;
         draftState.error = action.message;
-      });
-      return nextState;
-    }
-    case REFRESH_FIREBASE_TOKEN_SUCCESS: {
-      const nextState = produce(state, (draftState) => {
-        draftState.user.firebaseToken = action.data.firebaseToken;
       });
       return nextState;
     }

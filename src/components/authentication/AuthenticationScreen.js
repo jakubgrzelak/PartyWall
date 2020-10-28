@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   View,
   Text,
@@ -14,22 +14,24 @@ import {
 import { Formik } from 'formik';
 import { inputStyle } from '../../helpers/styleHelper';
 import { Button } from '../buttons/Button';
+import { Loader } from '../common/Loader';
 import { commonStyles } from '../../themes/common';
 import {
   createAccountValidationSchema,
   signinValidationSchema,
 } from '../../validators/formValidators';
-// import { loginSuccess, signupRequest } from '../../redux/user/actions';
 import Colors from '../../themes/colors';
 import { Header } from '../common/Header';
 import { BaseText } from '../common/BaseText';
+import { clearErrorMessage, createAccountRequest, loginRequest } from '../../redux/user/actions';
 
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 export const AuthenticationScreen = ({ navigation, createAccount = false }) => {
   const dispatch = useDispatch();
   const [errorMessaage, setErrorMessage] = useState(null);
-
+  const { isLoading, error } = useSelector(state => state.user);
+  
   const description = createAccount
     ? 'Please enter your user name and password in order to create new account'
     : 'Please enter your credentials in order to login';
@@ -39,13 +41,29 @@ export const AuthenticationScreen = ({ navigation, createAccount = false }) => {
 
   function handleLoginPress(values) {
     Keyboard.dismiss();
-    // dispatch(signupRequest(values));
+    dispatch(loginRequest(values))
   }
 
   function handleCreateAccount(values) {
     setErrorMessage(null);
     Keyboard.dismiss();
+    dispatch(createAccountRequest(values));
     // createUser({ variables: { ...values } });
+  }
+
+  function returnInitialValues() {
+    if (createAccount) {
+      return {
+        password: '',
+        username: '',
+        passwordConfirmation: '',
+      }
+    } else {
+      return {
+        password: '',
+        username: '',
+      }
+    }
   }
 
   function onBottomLinkPress() {
@@ -56,14 +74,19 @@ export const AuthenticationScreen = ({ navigation, createAccount = false }) => {
     }
   }
 
+  function onInputChange(value, field, setFieldValue) {
+    if (error) dispatch(clearErrorMessage());
+    setFieldValue(field, value);
+  }
+
   return (
     <View style={{ height: SCREEN_HEIGHT - 100 }}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.container}
         keyboardShouldPersistTaps={true}>
-        {/* {error && <Text style={commonStyles.errorMessage}>{error}</Text>} */}
-        {/* <Loader loading={isLoading} /> */}
+        {error && <BaseText style={commonStyles.errorMessage}>{error}</BaseText>}
+        <Loader loading={isLoading} />
         <BaseText style={[commonStyles.descriptionText, styles.headerText]}>
           {description}
         </BaseText>
@@ -71,11 +94,7 @@ export const AuthenticationScreen = ({ navigation, createAccount = false }) => {
           <BaseText style={commonStyles.errorMessage}>{errorMessaage}</BaseText>
         )}
         <Formik
-          initialValues={{
-            password: '',
-            nickname: '',
-            passwordConfirmation: '',
-          }}
+          initialValues={returnInitialValues()}
           onSubmit={createAccount ? handleCreateAccount : handleLoginPress}
           validationSchema={
             createAccount
@@ -86,32 +105,34 @@ export const AuthenticationScreen = ({ navigation, createAccount = false }) => {
             handleChange,
             handleSubmit,
             handleBlur,
+            setFieldValue,
             values,
             errors,
             touched,
           }) => (
             <View style={styles.content}>
-              {errors.password && touched.password && (
-                <Text style={commonStyles.errorMessage}>{errors.password}</Text>
-              )}
               <TextInput
-                onChangeText={handleChange('nickname')}
-                onBlur={handleBlur('nickname')}
-                value={values.nickname}
-                placeholder="Nickname"
+                onChangeText={
+                  (text) => onInputChange(text, 'username', setFieldValue)
+                }
+                onBlur={handleBlur('username')}
+                value={values.username}
+                placeholder="username"
                 style={inputStyle(
                   errors,
                   touched,
                   styles.inputStyle,
-                  'nickname',
+                  'username',
                 )}
                 autoCapitalize="none"
               />
-              {errors.nickname && touched.nickname && (
-                <Text style={commonStyles.errorMessage}>{errors.nickname}</Text>
+              {errors.username && touched.username && (
+                <Text style={commonStyles.errorMessage}>{errors.username}</Text>
               )}
               <TextInput
-                onChangeText={handleChange('password')}
+                onChangeText={
+                  (text) => onInputChange(text, 'password', setFieldValue)
+                }
                 onBlur={handleBlur('password')}
                 value={values.password}
                 secureTextEntry={true}
