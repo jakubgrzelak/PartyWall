@@ -4,8 +4,10 @@ import { navigate } from '../navigators/navigationActions';
 import {
   CREATE_PRODUCT_SUCCESS,
   DELETE_PRODUCT_SUCCESS,
+  GET_ALL_PRODUCTS_SUCCESS,
   PRODUCT_REQUEST_FAILURE,
 } from '../redux/products/types';
+import { addDrinkValidationSchema } from '../validators/formValidators';
 
 export function* createProduct(action) {
   try {
@@ -13,6 +15,15 @@ export function* createProduct(action) {
     yield put({ type: CREATE_PRODUCT_SUCCESS, data });
     navigate('Home');
   } catch ({ response: { data: { message }}}) {
+    yield put({ type: PRODUCT_REQUEST_FAILURE, message: e });
+  }
+}
+
+export function* getAllProducts() {
+  try {
+    const { data } = yield call(partyWallApi.products.getAllProducts);
+    yield put({ type: GET_ALL_PRODUCTS_SUCCESS, data });
+  } catch (e) {
     yield put({ type: PRODUCT_REQUEST_FAILURE, message: e });
   }
 }

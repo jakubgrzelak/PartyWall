@@ -1,5 +1,5 @@
 import produce from 'immer';
-import { CREATE_PRODUCT_REQUEST, CREATE_PRODUCT_SUCCESS, DELETE_PRODUCT_REQUEST, DELETE_PRODUCT_SUCCESS, PRODUCT_REQUEST_FAILURE } from './types';
+import { CREATE_PRODUCT_REQUEST, CREATE_PRODUCT_SUCCESS, DELETE_PRODUCT_REQUEST, DELETE_PRODUCT_SUCCESS, GET_ALL_PRODUCTS_REQUEST, GET_ALL_PRODUCTS_SUCCESS, PRODUCT_REQUEST_FAILURE } from './types';
 
 const initialState = {
   products: [],
@@ -9,6 +9,7 @@ const initialState = {
 
 export const products = (state = initialState, action) => {
   switch (action.type) {
+    case GET_ALL_PRODUCTS_REQUEST:
     case DELETE_PRODUCT_REQUEST:
     case CREATE_PRODUCT_REQUEST: {
       const nextState = produce(state, (draftState) => {
@@ -19,7 +20,7 @@ export const products = (state = initialState, action) => {
     }
     case CREATE_PRODUCT_SUCCESS: {
       const nextState = produce(state, (draftState) => {
-        draftState.products.push(action.data);
+        draftState.products.unshift(action.data);
         draftState.isLoading = false;
         draftState.error = null;
       });
@@ -33,6 +34,14 @@ export const products = (state = initialState, action) => {
         draftState.products = filteredProducts;
         draftState.isLoading = false;
         draftState.error = null;
+      });
+      return nextState;
+    }
+    case GET_ALL_PRODUCTS_SUCCESS: {
+      const nextState = produce(state, (draftState) => {
+        draftState.error = null;
+        draftState.products = action.data;
+        draftState.isLoading = false;
       });
       return nextState;
     }

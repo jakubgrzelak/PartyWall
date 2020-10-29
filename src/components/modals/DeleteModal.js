@@ -4,7 +4,7 @@ import { BaseModal } from '../modals/BaseModal';
 import { Button } from '../buttons/Button';
 import Colors from '../../themes/colors';
 
-const defaultText = 'Do you really want to the delete this dog from the list?';
+const defaultText = 'Do you really want to the delete this product?';
 
 export const DeleteModal = ({
   onClosePress,

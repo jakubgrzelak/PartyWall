@@ -48,7 +48,6 @@ export const AuthenticationScreen = ({ navigation, createAccount = false }) => {
     setErrorMessage(null);
     Keyboard.dismiss();
     dispatch(createAccountRequest(values));
-    // createUser({ variables: { ...values } });
   }
 
   function returnInitialValues() {
