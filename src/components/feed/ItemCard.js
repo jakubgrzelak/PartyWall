@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { PricingCard, Icon } from 'react-native-elements';
 import Colors from '../../themes/colors';
 import { deleteProduct } from '../../redux/products/actions';
+import { DeleteModal } from '../modals/DeleteModal';
 
 export const ItemCard = ({ product: {
   name, price, quantity, weight, volume, type, description,
   userId, id,
 }}) => {
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
   const currentUserId = useSelector(state => state.user.id);
   const dispatch = useDispatch();
   const isDrink = type === 'Drink';
-  const buttonIcon = isDrink ? 'local_bar' : 'fastfood';
   
   function buildInfoArray() {
     if (isDrink) {
@@ -30,6 +31,11 @@ export const ItemCard = ({ product: {
   }
 
   function onDeletePress() {
+    setShowDeleteModal(true);
+  }
+
+  function onConfirmationPress() {
+    setShowDeleteModal(false);
     dispatch(deleteProduct({ id }));
   }
 
@@ -60,6 +66,12 @@ export const ItemCard = ({ product: {
           style: styles.buttonStyle,
         }}
       />
+      {showDeleteModal && (
+        <DeleteModal
+          onConfirmationPress={onConfirmationPress}
+          onClosePress={() => setShowDeleteModal(false)}
+        />
+      )}
     </View>
   );
 }

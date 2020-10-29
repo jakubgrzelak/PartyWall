@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
-import { useSelector } from 'react-redux';
+import { useSelector} from 'react-redux';
 import { ItemCard } from '../../components/feed/ItemCard';
 import { BaseText } from '../../components/common/BaseText';
 import Colors from '../../themes/colors';
@@ -29,7 +29,7 @@ export const ItemList = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 50,
+    paddingBottom: 100,
   },
   text: {
     width: '70%',

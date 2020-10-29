@@ -15,8 +15,6 @@ function isAuthenticated({ username, password }){
 }
 
 server.post('/auth/register', (req, res) => {
-  console.log("register endpoint called; request body:");
-  console.log(req.body);
   const { username, password } = req.body;
 
   if(isAuthenticated({ username, password }) === true) {
@@ -81,4 +79,4 @@ server.post('/auth/login', (req, res) => {
 server.use(router); 
 server.listen(3000, () => {
   console.log('Run Auth API Server')
-})
+});

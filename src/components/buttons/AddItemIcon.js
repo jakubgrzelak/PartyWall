@@ -9,7 +9,6 @@ import { Icon } from 'react-native-elements'
 import Colors from '../../themes/colors';
 
 const screenWidth = Dimensions.get('screen').width;
-// const addIcon = require('../../assets/nav/add_icon.png');
 
 export const AddItemIcon = (props) => {
   function onIconPress() {

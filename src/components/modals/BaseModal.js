@@ -1,36 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   StyleSheet,
   View,
   TouchableWithoutFeedback,
-  Image,
   Modal,
 } from 'react-native';
 
-export class BaseModal extends Component {
-  render() {
-    const { contentStyle, onOverlayPress } = this.props;
-    return (
-      <Modal transparent>
-        <View style={styles.container}>
-          <TouchableWithoutFeedback onPress={onOverlayPress}>
-            <View style={styles.overlay} />
-          </TouchableWithoutFeedback>
-          <View style={[styles.content, contentStyle]}>
-            {/* <TouchableOpacity
-              style={styles.closeButton}
-              onPress={this._closeButtonHandler}>
-              <Image source={require('../img/ic_cross.png')} />
-            </TouchableOpacity> */}
-
-            {this.props.children}
-          </View>
+export const BaseModal = ({ contentStyle, onOverlayPress, children }) => {
+  return (
+    <Modal transparent>
+      <View style={styles.container}>
+        <TouchableWithoutFeedback onPress={onOverlayPress}>
+          <View style={styles.overlay} />
+        </TouchableWithoutFeedback>
+        <View style={[styles.content, contentStyle]}>
+          {children}
         </View>
-      </Modal>
-    );
-  }
-
-  _closeButtonHandler = () => {};
+      </View>
+    </Modal>
+  );
 }
 
 const styles = StyleSheet.create({
