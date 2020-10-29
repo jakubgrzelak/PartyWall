@@ -232,8 +232,9 @@ export const AddItemForm = () => {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    paddingBottom: 40,
+    paddingBottom: 30,
     margin: 20,
+    marginBottom: 50,
     backgroundColor: Colors.whiteBackground,
     borderRadius: 20,
   },
