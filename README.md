@@ -22,4 +22,4 @@ In order to run the project with basic server run following commands:
 ## android
 
 5. Modify `src/api/requests/index.js`. Please provide in a given place your IP address for localhost. Unfortunatley axios needs it to work with android.
-6. Run `yarn run androoid` or open the project via Android Studio
+6. Run `yarn run android` or open the project via Android Studio
