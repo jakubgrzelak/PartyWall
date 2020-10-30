@@ -9,7 +9,11 @@ export const Loader = (props) => {
     <Modal transparent={true} animationType={'none'} visible={loading}>
       <View style={styles.modalBackground}>
         <View style={styles.activityIndicatorWrapper}>
-          <ActivityIndicator size="large" animating={loading} />
+          <ActivityIndicator
+            color={Colors.activeDot}
+            size="large"
+            animating={loading}
+          />
         </View>
       </View>
     </Modal>
@@ -23,6 +27,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-around',
     backgroundColor: Colors.modalBackground,
+    zIndex: 0,
   },
   activityIndicatorWrapper: {
     backgroundColor: Colors.whiteBackground,
@@ -32,5 +37,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-around',
+    zIndex: 0,
   },
 });

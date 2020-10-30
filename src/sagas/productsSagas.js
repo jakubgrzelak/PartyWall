@@ -7,7 +7,6 @@ import {
   GET_ALL_PRODUCTS_SUCCESS,
   PRODUCT_REQUEST_FAILURE,
 } from '../redux/products/types';
-import { addDrinkValidationSchema } from '../validators/formValidators';
 
 export function* createProduct(action) {
   try {
