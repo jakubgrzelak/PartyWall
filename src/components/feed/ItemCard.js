@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { PricingCard, Icon } from 'react-native-elements';
 import Colors from '../../themes/colors';
@@ -81,16 +81,17 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 25,
     top: 25,
-    zIndex: 1
+    zIndex: 10,
+    elevation: 2
   },
   cardContent: {
     borderRadius: 10,
-  },
-  hideButton: {
-    display: 'none',
+    zIndex: 0,
   },
   buttonStyle: {
     width: 100,
     alignSelf: 'center',
+    zIndex: 0,
+    position: 'absolute',
   }
 });

@@ -14,8 +14,8 @@ export const ItemList = () => {
     <ScrollView contentContainerStyle={styles.container}>
       {products.length > 0 ?
         (
-          products.map(product => (
-            <ItemCard product={product} />
+          products.map((product, index) => (
+            <ItemCard key={index} product={product} />
           ))
         ) : (
           <BaseText style={styles.text}>

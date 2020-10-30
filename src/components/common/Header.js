@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   content: {
-    paddingTop: isNotchPresent ? 40 : 25,
+    paddingTop: isNotchPresent ? 40 : 15,
   },
   headerText: {
     color: '#000',

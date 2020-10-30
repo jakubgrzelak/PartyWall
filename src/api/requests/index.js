@@ -1,9 +1,14 @@
 import axios from 'axios';
-import applyCaseMiddleware from 'axios-case-converter';
+import { Platform } from 'react-native';
+
+// import applyCaseMiddleware from 'axios-case-converter';
 import Config from 'react-native-config';
 
-const BASE_URL =
-  Config.SERVER_URL || 'http://localhost:3000';
+// In order for axios to work on android emulator one have to provide its
+// own IP address 
+
+const platforrmBasedDevHost = Platform.OS === 'android' ? '192.168.0.108' : 'localhost'
+const BASE_URL = Config.SERVER_URL || `http://${platforrmBasedDevHost}:3000`;
 
 const defaultHeaders = {
   Accept: 'application/json',
