@@ -135,7 +135,7 @@ export const AuthenticationScreen = ({ navigation, createAccount = false }) => {
                 onBlur={handleBlur('password')}
                 value={values.password}
                 secureTextEntry={true}
-                placeholder="Password"
+                placeholder="password"
                 style={inputStyle(
                   errors,
                   touched,

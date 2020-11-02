@@ -1,0 +1,612 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering should match to snapshot - creating account 1`] = `
+<View
+  style={
+    Object {
+      "height": 1234,
+    }
+  }
+>
+  <View
+    keyboardShouldPersistTaps={true}
+    onLayout={[Function]}
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        },
+        Object {
+          "paddingBottom": 0,
+        },
+      ]
+    }
+  >
+    <Modal
+      animationType="none"
+      hardwareAccelerated={false}
+      transparent={true}
+      visible={false}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#00000040",
+            "flex": 1,
+            "flexDirection": "column",
+            "justifyContent": "space-around",
+            "zIndex": 0,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#fff",
+              "borderRadius": 10,
+              "display": "flex",
+              "height": 100,
+              "justifyContent": "space-around",
+              "width": 100,
+              "zIndex": 0,
+            }
+          }
+        >
+          <ActivityIndicator
+            animating={false}
+            color="#157dfb"
+            hidesWhenStopped={true}
+            size="large"
+          />
+        </View>
+      </View>
+    </Modal>
+    <Text
+      style={
+        Array [
+          Object {
+            "fontWeight": "300",
+          },
+          Array [
+            Object {
+              "color": "#808080",
+              "fontSize": 18,
+              "paddingBottom": 35,
+              "paddingTop": 15,
+            },
+            Object {
+              "paddingBottom": 20,
+              "paddingHorizontal": "15%",
+              "textAlign": "center",
+            },
+          ],
+        ]
+      }
+    >
+      Please enter your user name and password in order to create new account
+    </Text>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "width": "100%",
+        }
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        autoCapitalize="none"
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        placeholder="username"
+        rejectResponderTermination={true}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#fff",
+              "borderColor": "gray",
+              "borderRadius": 5,
+              "borderWidth": 1,
+              "color": "#808080",
+              "fontSize": 15,
+              "fontWeight": "500",
+              "height": 50,
+              "paddingHorizontal": 10,
+            },
+            Object {
+              "backgroundColor": "#fff",
+              "borderColor": "gray",
+              "borderRadius": 5,
+              "borderWidth": 1,
+              "color": "#808080",
+              "flexDirection": "row",
+              "fontSize": 15,
+              "fontWeight": "500",
+              "height": 50,
+              "marginBottom": 10,
+              "marginVertical": 5,
+              "paddingHorizontal": 10,
+              "width": "70%",
+            },
+          ]
+        }
+        underlineColorAndroid="transparent"
+        value=""
+      />
+      <TextInput
+        allowFontScaling={true}
+        autoCapitalize="none"
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        placeholder="password"
+        rejectResponderTermination={true}
+        secureTextEntry={true}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#fff",
+              "borderColor": "gray",
+              "borderRadius": 5,
+              "borderWidth": 1,
+              "color": "#808080",
+              "fontSize": 15,
+              "fontWeight": "500",
+              "height": 50,
+              "paddingHorizontal": 10,
+            },
+            Object {
+              "backgroundColor": "#fff",
+              "borderColor": "gray",
+              "borderRadius": 5,
+              "borderWidth": 1,
+              "color": "#808080",
+              "flexDirection": "row",
+              "fontSize": 15,
+              "fontWeight": "500",
+              "height": 50,
+              "marginBottom": 10,
+              "marginVertical": 5,
+              "paddingHorizontal": 10,
+              "width": "70%",
+            },
+          ]
+        }
+        underlineColorAndroid="transparent"
+        value=""
+      />
+      <TextInput
+        allowFontScaling={true}
+        autoCapitalize="none"
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        placeholder="Password Confirmation"
+        rejectResponderTermination={true}
+        secureTextEntry={true}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#fff",
+              "borderColor": "gray",
+              "borderRadius": 5,
+              "borderWidth": 1,
+              "color": "#808080",
+              "fontSize": 15,
+              "fontWeight": "500",
+              "height": 50,
+              "paddingHorizontal": 10,
+            },
+            Object {
+              "backgroundColor": "#fff",
+              "borderColor": "gray",
+              "borderRadius": 5,
+              "borderWidth": 1,
+              "color": "#808080",
+              "flexDirection": "row",
+              "fontSize": 15,
+              "fontWeight": "500",
+              "height": 50,
+              "marginBottom": 10,
+              "marginVertical": 5,
+              "paddingHorizontal": 10,
+              "width": "70%",
+            },
+          ]
+        }
+        underlineColorAndroid="transparent"
+        value=""
+      />
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "backgroundColor": "#157dfb",
+            "borderRadius": 5,
+            "height": 50,
+            "justifyContent": "center",
+            "marginTop": 10,
+            "marginVertical": 3,
+            "opacity": 1,
+            "width": 200,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#fff",
+                "fontSize": 20,
+                "fontWeight": "700",
+              },
+              undefined,
+            ]
+          }
+        >
+          Sign Up
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 20,
+        "justifyContent": "center",
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "fontWeight": "300",
+          },
+          Object {
+            "fontSize": 16,
+            "textAlign": "center",
+            "width": "60%",
+          },
+        ]
+      }
+    >
+      If you have an account
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "fontWeight": "300",
+              },
+              Object {
+                "color": "#157dfb",
+                "fontSize": 16,
+                "fontWeight": "500",
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          please login here!
+        </Text>
+      </View>
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Rendering should match to snapshot - login 1`] = `
+<View
+  style={
+    Object {
+      "height": 1234,
+    }
+  }
+>
+  <View
+    keyboardShouldPersistTaps={true}
+    onLayout={[Function]}
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        },
+        Object {
+          "paddingBottom": 0,
+        },
+      ]
+    }
+  >
+    <Modal
+      animationType="none"
+      hardwareAccelerated={false}
+      transparent={true}
+      visible={false}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#00000040",
+            "flex": 1,
+            "flexDirection": "column",
+            "justifyContent": "space-around",
+            "zIndex": 0,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#fff",
+              "borderRadius": 10,
+              "display": "flex",
+              "height": 100,
+              "justifyContent": "space-around",
+              "width": 100,
+              "zIndex": 0,
+            }
+          }
+        >
+          <ActivityIndicator
+            animating={false}
+            color="#157dfb"
+            hidesWhenStopped={true}
+            size="large"
+          />
+        </View>
+      </View>
+    </Modal>
+    <Text
+      style={
+        Array [
+          Object {
+            "fontWeight": "300",
+          },
+          Array [
+            Object {
+              "color": "#808080",
+              "fontSize": 18,
+              "paddingBottom": 35,
+              "paddingTop": 15,
+            },
+            Object {
+              "paddingBottom": 20,
+              "paddingHorizontal": "15%",
+              "textAlign": "center",
+            },
+          ],
+        ]
+      }
+    >
+      Please enter your credentials in order to login
+    </Text>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "width": "100%",
+        }
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        autoCapitalize="none"
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        placeholder="username"
+        rejectResponderTermination={true}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#fff",
+              "borderColor": "gray",
+              "borderRadius": 5,
+              "borderWidth": 1,
+              "color": "#808080",
+              "fontSize": 15,
+              "fontWeight": "500",
+              "height": 50,
+              "paddingHorizontal": 10,
+            },
+            Object {
+              "backgroundColor": "#fff",
+              "borderColor": "gray",
+              "borderRadius": 5,
+              "borderWidth": 1,
+              "color": "#808080",
+              "flexDirection": "row",
+              "fontSize": 15,
+              "fontWeight": "500",
+              "height": 50,
+              "marginBottom": 10,
+              "marginVertical": 5,
+              "paddingHorizontal": 10,
+              "width": "70%",
+            },
+          ]
+        }
+        underlineColorAndroid="transparent"
+        value=""
+      />
+      <TextInput
+        allowFontScaling={true}
+        autoCapitalize="none"
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        placeholder="password"
+        rejectResponderTermination={true}
+        secureTextEntry={true}
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#fff",
+              "borderColor": "gray",
+              "borderRadius": 5,
+              "borderWidth": 1,
+              "color": "#808080",
+              "fontSize": 15,
+              "fontWeight": "500",
+              "height": 50,
+              "paddingHorizontal": 10,
+            },
+            Object {
+              "backgroundColor": "#fff",
+              "borderColor": "gray",
+              "borderRadius": 5,
+              "borderWidth": 1,
+              "color": "#808080",
+              "flexDirection": "row",
+              "fontSize": 15,
+              "fontWeight": "500",
+              "height": 50,
+              "marginBottom": 10,
+              "marginVertical": 5,
+              "paddingHorizontal": 10,
+              "width": "70%",
+            },
+          ]
+        }
+        underlineColorAndroid="transparent"
+        value=""
+      />
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "backgroundColor": "#157dfb",
+            "borderRadius": 5,
+            "height": 50,
+            "justifyContent": "center",
+            "marginTop": 10,
+            "marginVertical": 3,
+            "opacity": 1,
+            "width": 200,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#fff",
+                "fontSize": 20,
+                "fontWeight": "700",
+              },
+              undefined,
+            ]
+          }
+        >
+          Login
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "bottom": 20,
+        "justifyContent": "center",
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "fontWeight": "300",
+          },
+          Object {
+            "fontSize": 16,
+            "textAlign": "center",
+            "width": "60%",
+          },
+        ]
+      }
+    >
+      If you do not have an account
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "fontWeight": "300",
+              },
+              Object {
+                "color": "#157dfb",
+                "fontSize": 16,
+                "fontWeight": "500",
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          please create one here!
+        </Text>
+      </View>
+    </Text>
+  </View>
+</View>
+`;
